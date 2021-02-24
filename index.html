@@ -120,18 +120,14 @@ div.vertical {
 
 
 	$("#loginbutton").on("click", function() {
-		var creds = ("#client").val()+("#password").val();
-		//loadPage($("#password").val());
-		alert(creds);
-		loadPage($(creds));
+		var cred = $("#client").val() + $("#password").val()
+		loadPage(cred);
 		
 	});
 	$("#password").keypress(function(e) {
 		if (e.which == 13) {
-			var creds = ("#client").val()+("#password").val();
-			//loadPage($("#password").val());
-			alert(creds);
-			loadPage($(creds));
+			var cred = $("#client").val() + $("#password").val()
+			loadPage(cred);
 			
 		}
 	});
