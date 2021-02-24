@@ -121,8 +121,8 @@ div.vertical {
 
 	$("#loginbutton").on("click", function() {
 		//loadPage($("#password").val());
-		loadPage($("#client").val().concat(("#password").val()));
-		alert(("#client").val().concat(("#password").val()));
+		loadPage($(("#client").val()+("#password").val()));
+		alert($(("#client").val()+("#password").val()));
 	});
 	$("#password").keypress(function(e) {
 		if (e.which == 13) {
