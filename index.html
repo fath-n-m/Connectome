@@ -121,11 +121,11 @@ div.vertical {
 
 	$("#loginbutton").on("click", function() {
 		//loadPage($("#password").val());
-		loadPage($("#client").val()+("#password").val());
+		loadPage($("#client").val().concat(("#password").val()));
 	});
 	$("#password").keypress(function(e) {
 		if (e.which == 13) {
-			loadPage($(("#client").val()+("#password").val()));
+			loadPage($("#client").val().concat(("#password").val()));
 			//loadPage($("#password").val());
 		}
 	});
