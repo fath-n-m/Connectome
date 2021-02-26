@@ -46,11 +46,9 @@ Object.size = function(obj) {
 function initSigma(config) {
 	var data=config.data
 	
-	var drawProps, graphProps,mouseProps,sets;
+	var drawProps, graphProps,mouseProps;
 	
-	sets={
-    	edgeLabelSize: "proportional"
-    	};
+	
 	
 	if (config.sigma && config.sigma.drawingProperties) 
 		drawProps=config.sigma.drawingProperties;
@@ -88,7 +86,7 @@ function initSigma(config) {
 	
     
 	
-    var a = sigma.init(document.getElementById("sigma-canvas")).drawingProperties(drawProps).graphProperties(graphProps).mouseProperties(mouseProps).settings(sets);
+    var a = sigma.init(document.getElementById("sigma-canvas")).drawingProperties(drawProps).graphProperties(graphProps).mouseProperties(mouseProps);
     sigInst = a;
     a.active = !1;
     a.neighbors = {};
