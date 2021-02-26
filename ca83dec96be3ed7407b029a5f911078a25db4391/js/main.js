@@ -81,7 +81,11 @@ function initSigma(config) {
         maxRatio: 20, // How far can we zoom in?
     	};
 	
-    var a = sigma.init(document.getElementById("sigma-canvas")).drawingProperties(drawProps).graphProperties(graphProps).mouseProperties(mouseProps);
+	sets={
+        edgeLabelSize: "proportional"
+    	};
+	
+    var a = sigma.init(document.getElementById("sigma-canvas")).drawingProperties(drawProps).graphProperties(graphProps).mouseProperties(mouseProps).settings(sets);
     sigInst = a;
     a.active = !1;
     a.neighbors = {};
