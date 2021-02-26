@@ -59,7 +59,8 @@ function initSigma(config) {
         defaultEdgeType: "curve",
         hoverFontStyle: "bold",
         fontStyle: "bold",
-        activeFontStyle: "bold"
+        activeFontStyle: "bold",
+	edgeLabels: true
     };
     
     if (config.sigma && config.sigma.graphProperties)	
