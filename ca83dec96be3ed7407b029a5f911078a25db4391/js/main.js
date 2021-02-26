@@ -22,11 +22,7 @@ function GetQueryStringParams(sParam,defaultVal) {
 jQuery.getJSON(GetQueryStringParams("config","config.json"), function(data, textStatus, jqXHR) {
 	config=data;
 	
-	if (config.type!="network") {
-		//bad config
-		alert("Invalid configuration settings.")
-		return;
-	}
+	
 	
 	//As soon as page is ready (and data ready) set up it
 	$(document).ready(setupGUI(config));
