@@ -60,7 +60,7 @@ function initSigma(config) {
         hoverFontStyle: "bold",
         fontStyle: "bold",
         activeFontStyle: "bold",
-	edgeLabels: true
+	drawEdgeLabels: true
     };
     
     if (config.sigma && config.sigma.graphProperties)	
