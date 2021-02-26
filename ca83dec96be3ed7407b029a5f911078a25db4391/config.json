@@ -1,5 +1,5 @@
 {
-  "type": "sigma.renderers.canvas",
+  "type": "network",
   "version": "1.0",
   "data": "data.json",
   "logo": {
