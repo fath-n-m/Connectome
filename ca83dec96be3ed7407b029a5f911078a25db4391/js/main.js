@@ -82,7 +82,7 @@ function initSigma(config) {
 	
     
 	
-    var a = sigma.init(document.getElementById("sigma-canvas")).drawingProperties(drawProps).graphProperties(graphProps).mouseProperties(mouseProps);
+    var a = sigma.init(document.getElementById("sigma-container")).drawingProperties(drawProps).graphProperties(graphProps).mouseProperties(mouseProps);
     sigInst = a;
     a.active = !1;
     a.neighbors = {};
