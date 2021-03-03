@@ -444,6 +444,12 @@ function nodeActive(a) {
     sigInst.neighbors = {};
     sigInst.detail = !0;
     var b = sigInst._core.graph.nodesIndex[a];
+
+/* ~~~~ HACK PART 1 START ~~~ */
+	var edgesFromActiveNode = sigInst._core.graph.edges.filter( function( row ) {return row.source.id == b.id } );
+	var activeNode = b;
+/* ~~~~ HACK PART 1 END ~~~ */
+
     showGroups(!1);
 	var outgoing={},incoming={},mutual={};//SAH
     sigInst.iterEdges(function (b) {
@@ -506,12 +512,22 @@ function nodeActive(a) {
     d = "";
 		for (g in e) {
 			c = e[g];
-			/*if (c.group != d) {
-				d = c.group;
-				f.push('<li class="cf" rel="' + c.color + '"><div class=""></div><div class="">' + d + "</div></li>");
-			}*/
-			f.push('<li class="membership"><a href="#' + c.name + '" onmouseover="sigInst._core.plotter.drawHoverNode(sigInst._core.graph.nodesIndex[\'' + c.id + '\'])\" onclick=\"nodeActive(\'' + c.id + '\')" onmouseout="sigInst.refresh()">' + c.name + "</a></li>");
+			
+/* ~~~~ HACK PART 2 STARTS ~~~ */
+			var title = ""
+			var localEdges = edgesFromActiveNode.filter( function( row ) { 
+				return row.target.id === c.id
+			});
+			if (localEdges.length > 0) {
+				for (i = 0; i < localEdges.length; i++) {
+					title = title + localEdges[i].attr.attributes.Quotation + ", " + localEdges[i].attr.attributes.work + "\n"
+				}
+			}
+			title = title.replace(/\"/g, '\'')
+    
+			f.push('<li class="membership"><a href="#' + c.name + '" onmouseover="sigInst._core.plotter.drawHoverNode(sigInst._core.graph.nodesIndex[\'' + c.id + '\'])\" onclick=\"nodeActive(\'' + c.id + '\')" onmouseout="sigInst.refresh()" title="' + title + '">' + c.name + "</a></li>");
 		}
+/* ~~~~ HACK PART 2 ENDS ~~~ */
 		return f;
 	}
 	
